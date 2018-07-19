@@ -2,6 +2,8 @@ package simpleatm.model;
 
 /**
  * Error Codes for use in service exceptions
+ * @Author Anne Hogan
+ * @Copyright 2018
  */
 
 public class ATMServiceErrorCodes {

@@ -10,8 +10,12 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import simpleatm.model.ServiceErrorCode;
 
 /**
- * @TODO check error http status code mappings
+ * ATMServiceExceptionHandler - handles the {@link ServiceException}
+ *
+ * @Author Anne Hogan
+ * @Copyright 2018
  */
+
 @ControllerAdvice
 @RestController
 public class ATMServiceExceptionHandler extends ResponseEntityExceptionHandler {
@@ -20,9 +24,4 @@ public class ATMServiceExceptionHandler extends ResponseEntityExceptionHandler {
     public final ResponseEntity<ServiceErrorCode> handleServiceException(ServiceException ex, WebRequest request) {
         return new ResponseEntity<>(ex.getServiceErrorCode(), HttpStatus.NOT_FOUND);
     }
-
-//    @ExpectedxceptionHandler(RuntimeException.class)
-//    public final ResponseEntity<String> handleRuntimeException(RuntimeException ex, WebRequest request) {
-//        return new ResponseEntity<>(ex.getLocalizedMessage(), HttpStatus.NOT_FOUND);
-//    }
 }

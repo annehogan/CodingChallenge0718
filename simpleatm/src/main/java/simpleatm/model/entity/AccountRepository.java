@@ -5,6 +5,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * AccountRepository - a JPA repository to manage {@link Account}
+ *
+ * @Author Anne Hogan
+ * @Copyright 2018
+ */
+
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
@@ -15,6 +22,6 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
      * @return A list of Accounts with the relevant accountNumber and pin.
      * If no Account is found, this method returns null.
      */
-    public List<Account> findByNumberAndPin(Long accountNumber, Long pin);
+    List<Account> findByNumberAndPin(Long accountNumber, Long pin);
 
 }

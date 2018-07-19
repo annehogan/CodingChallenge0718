@@ -16,6 +16,13 @@ import simpleatm.model.entity.NoteHolderRepository;
 import java.util.List;
 
 
+/**
+ * ATMDaoImpl - handles the data access, manages the objects and their updates.
+ *
+ * @Author Anne Hogan
+ * @Copyright 2018
+ */
+
 @Repository
 @Qualifier("atmDao")
 public class ATMDaoImpl implements ATMDao {
@@ -43,6 +50,12 @@ public class ATMDaoImpl implements ATMDao {
         return noteHolderRepository.findAvailableFundsOrderByNoteValueDesc();
     }
 
+    /**
+     * This must be transactional as all the changes are carried out here. If we fail making any part of update, the
+     * entire transaction must be rolled back.
+     * @param noteHolderList
+     * @param account
+     */
     @Transactional
     @Override
     public void updateAfterWithdrawal(List<NoteHolder> noteHolderList, Account account) {

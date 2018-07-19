@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 @JsonRootName("withdrawal")
 public class WithdrawalDTO implements Serializable {
@@ -30,5 +31,29 @@ public class WithdrawalDTO implements Serializable {
 
     public void setRemainingBalance(Long remainingBalance) {
         this.remainingBalance = remainingBalance;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WithdrawalDTO that = (WithdrawalDTO) o;
+        return Objects.equals(banknotePiles, that.banknotePiles) &&
+                Objects.equals(remainingBalance, that.remainingBalance);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(banknotePiles, remainingBalance);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("WithdrawalDTO{");
+        sb.append("banknotePiles=").append(banknotePiles);
+        sb.append(", remainingBalance=").append(remainingBalance);
+        sb.append('}');
+        return sb.toString();
     }
 }

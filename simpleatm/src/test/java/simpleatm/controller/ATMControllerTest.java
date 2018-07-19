@@ -25,6 +25,7 @@ public class ATMControllerTest {
     MockMvc mockMvc;
 
     @Test
+    @SuppressWarnings("unchecked")
     public void testAccountExists() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/account/" + ACCOUNT_1.toString() + "/pin/" + PIN_1.toString()))
                 .andExpect(status().isOk())
@@ -34,15 +35,5 @@ public class ATMControllerTest {
     }
 
     // TODO test rest of the interface
-//    @Test
-//    public void testBalanceAccountExists() throws Exception {
-//        mockMvc.perform(MockMvcRequestBuilders.get("/balance")
-//                .param("accountNumber", ACCOUNT_1.toString())
-//                .param("pin", PIN_1.toString()))
-//                .andExpect(status().isOk())
-//                .andExpect(content().contentType("application/json;charset=UTF-8"))
-//                .andExpect(content().string(CoreMatchers.containsString("currentBalance")))
-//                .andExpect(content().string(CoreMatchers.containsString("maxWithdrawal")));
-//    }
 
 }

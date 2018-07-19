@@ -54,7 +54,7 @@ public class ATMServiceImplTest {
             withdrawalDTO = atmService.withdraw(ACCOUNT_3, PIN_3, BALANCE_3 + 5L);
         } catch (ServiceException se) {
             assertNotNull(se);
-            assertEquals(se.getServiceErrorCode().getCode(), ATM_ERROR_CODE_ATM_INSUFFICIENT_FUNDS);
+            assertEquals(ATM_ERROR_CODE_ATM_INSUFFICIENT_FUNDS, se.getServiceErrorCode().getCode());
         }
         assertNull(EXPECTED_NULL_STRING, withdrawalDTO);
     }
@@ -76,14 +76,14 @@ public class ATMServiceImplTest {
             withdrawalDTO = atmService.withdraw(ACCOUNT_1, PIN_1, -1L);
         } catch (ServiceException se) {
             assertNotNull(se);
-            assertEquals(se.getServiceErrorCode().getCode(), ATM_ERROR_CODE_POSITIVE_AMOUNT_REQD);
+            assertEquals(ATM_ERROR_CODE_POSITIVE_AMOUNT_REQD, se.getServiceErrorCode().getCode());
         }
         assertNull(EXPECTED_NULL_STRING, withdrawalDTO);
         try {
             withdrawalDTO = atmService.withdraw(ACCOUNT_1, PIN_1, 0L);
         } catch (ServiceException se) {
             assertNotNull(se);
-            assertEquals(se.getServiceErrorCode().getCode(), ATM_ERROR_CODE_POSITIVE_AMOUNT_REQD);
+            assertEquals(ATM_ERROR_CODE_POSITIVE_AMOUNT_REQD, se.getServiceErrorCode().getCode());
         }
         assertNull(EXPECTED_NULL_STRING, withdrawalDTO);
     }
@@ -96,7 +96,7 @@ public class ATMServiceImplTest {
             withdrawalDTO = atmService.withdraw(ACCOUNT_2, PIN_2, BALANCE_2 + OVERDRAFT_2 + 5L);
         } catch (ServiceException se) {
             assertNotNull(se);
-            assertEquals(se.getServiceErrorCode().getCode(), ATM_ERROR_CODE_ACCOUNT_INSUFFICIENT_FUNDS);
+            assertEquals(ATM_ERROR_CODE_ACCOUNT_INSUFFICIENT_FUNDS, se.getServiceErrorCode().getCode());
         }
         assertNull(EXPECTED_NULL_STRING, withdrawalDTO);
     }

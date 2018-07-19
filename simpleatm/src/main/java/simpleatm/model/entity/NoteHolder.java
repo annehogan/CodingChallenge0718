@@ -5,6 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
+/**
+ * NoteHolder - hibernate entity definition. A simple class with a named query to retrieve available funds by
+ * excluding empty NoteHolders.
+ *
+ * @Author Anne Hogan
+ * @Copyright 2018
+ */
+
 @Entity
 @NamedQuery(name = "NoteHolder.findAvailableFundsOrderByNoteValueDesc", query = "SELECT c FROM NoteHolder c WHERE note_quantity > 0 order by note_value desc ")
 public class NoteHolder {

@@ -5,6 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
+/**
+ * Account - hibernate entity definition. A simple class with a named query to handle account and pin filter queries.
+ *
+ * @Author Anne Hogan
+ * @Copyright 2018
+ */
 @Entity
 @NamedQuery(name = "Account.findByNumberAndPin", query = "SELECT a FROM Account a WHERE accountNumber = (?1) and pin = (?2) ")
 public class Account {

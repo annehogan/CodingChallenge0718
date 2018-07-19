@@ -77,11 +77,11 @@ public class ATMDAOImplTest {
             if (noteHolder.getNoteValue().equals(ATMTestConstants.NOTE_VALUE_50)) {
                 assertEquals(ATMTestConstants.STARTING_QUANTITY_50, noteHolder.getNoteQuantity());
             } else if (noteHolder.getNoteValue().equals(ATMTestConstants.NOTE_VALUE_20)) {
-                assertEquals(noteHolder.getNoteQuantity(), ATMTestConstants.STARTING_QUANTITY_20);
+                assertEquals(ATMTestConstants.STARTING_QUANTITY_20, noteHolder.getNoteQuantity());
             } else if (noteHolder.getNoteValue().equals(ATMTestConstants.NOTE_VALUE_10)) {
-                assertEquals(noteHolder.getNoteQuantity(), ATMTestConstants.STARTING_QUANTITY_10);
+                assertEquals(ATMTestConstants.STARTING_QUANTITY_10, noteHolder.getNoteQuantity());
             } else {
-                assertEquals(noteHolder.getNoteQuantity(), ATMTestConstants.STARTING_QUANTITY_5);
+                assertEquals(ATMTestConstants.STARTING_QUANTITY_5, noteHolder.getNoteQuantity());
             }
             runningTotal += noteHolder.getNoteQuantity() * noteHolder.getNoteValue();
         }

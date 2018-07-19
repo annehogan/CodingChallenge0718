@@ -2,6 +2,14 @@ package simpleatm.exception;
 
 import simpleatm.model.ServiceErrorCode;
 
+/**
+ * ServiceException - simple exception for handing error codes and messages while maintaining caught Exceptions by
+ * extending and not consuming them.
+ *
+ * @Author Anne Hogan
+ * @Copyright 2018
+ */
+
 public class ServiceException extends RuntimeException {
     private final ServiceErrorCode serviceErrorCode;
 
@@ -21,7 +29,6 @@ public class ServiceException extends RuntimeException {
     }
 
     public ServiceErrorCode getServiceErrorCode() {
-
         return serviceErrorCode;
     }
 }

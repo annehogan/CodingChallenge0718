@@ -19,6 +19,13 @@ import java.util.List;
 
 import static simpleatm.model.ATMServiceErrorCodes.*;
 
+/**
+ * The ATMServiceImpl is the implementation of {@link ATMService}. It performs the operations required by the front
+ * end and interacts with the database via the {@link ATMDAO}.
+ *
+ * @Author Anne Hogan
+ * @Copyright 2018
+ */
 @Qualifier("atmService")
 @Service
 public class ATMServiceImpl implements ATMService {
@@ -32,6 +39,13 @@ public class ATMServiceImpl implements ATMService {
         return new BalanceDTO(account.getBalance(), account.getOverdraftAllowance() + account.getBalance());
     }
 
+    /**
+     * Handles the withdrawal. This method is transactional to ensure that if there is a failure in any step the
+     * entire transaction rolls back.
+     *
+     * Usual parameter and return details are described in the interface javadoc.
+     *
+     */
     @Transactional
     @Override
     public WithdrawalDTO withdraw(Long accountNumber, Long pin, Long amountToWithdraw) {
