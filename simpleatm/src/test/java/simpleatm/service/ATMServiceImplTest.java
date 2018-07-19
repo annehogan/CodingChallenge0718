@@ -51,7 +51,7 @@ public class ATMServiceImplTest {
         setUp();
         WithdrawalDTO withdrawalDTO = null;
         try {
-            withdrawalDTO = atmService.withdraw(ACCOUNT_3, PIN_3, BALANCE_3 + 5L);
+            withdrawalDTO = atmService.withdraw(ACCOUNT_3, PIN_3, ATM_LIMIT + 5L);
         } catch (ServiceException se) {
             assertNotNull(se);
             assertEquals(ATM_ERROR_CODE_ATM_INSUFFICIENT_FUNDS, se.getServiceErrorCode().getCode());

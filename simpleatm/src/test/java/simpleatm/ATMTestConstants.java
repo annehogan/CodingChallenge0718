@@ -26,6 +26,9 @@ public class ATMTestConstants {
     public static final Long BALANCE_1 = 200L;
     public static final Long BALANCE_2 = 385L;
     public static final Long BALANCE_3 = 2000L;
+
+    public static final Long ATM_LIMIT = 2000L;
+
     public static final Long OVERDRAFT_1 = 200L;
     public static final Long OVERDRAFT_2 = 100L;
     public static final Long OVERDRAFT_3 = 1000L;
