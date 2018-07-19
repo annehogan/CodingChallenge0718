@@ -37,7 +37,7 @@ public class ATMControllerTest {
     @Test
     @SuppressWarnings("unchecked")
     public void testWithdrawal() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/account/" + ACCOUNT_1.toString() + "/pin/" + PIN_1.toString()+"/withdraw/"+BALANCE_1)
+        mockMvc.perform(MockMvcRequestBuilders.get("/account/" + ACCOUNT_1.toString() + "/pin/" + PIN_1.toString()+"/withdraw/"+BALANCE_1))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json;charset=UTF-8"))
                 .andExpect(content().string(CoreMatchers.containsString("banknotePiles")))

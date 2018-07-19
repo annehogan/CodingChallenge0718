@@ -5,6 +5,12 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+/**
+ * WithdrawalDTO - POJO class for passing withdrawal data to the front end
+ *
+ * @Author Anne Hogan
+ * @Copyright 2018
+ */
 
 @JsonRootName("withdrawal")
 public class WithdrawalDTO implements Serializable {

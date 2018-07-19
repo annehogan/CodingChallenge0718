@@ -5,6 +5,12 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * ServiceErrorCode for use in {@link ServiceException}
+ * @Author Anne Hogan
+ * @Copyright 2018
+ */
+
 @JsonRootName("error")
 public class ServiceErrorCode implements Serializable {
     private String code;

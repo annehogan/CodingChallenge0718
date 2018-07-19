@@ -1,7 +1,7 @@
 package simpleatm.model;
 
 /**
- * BalanceDTO - POJO class for passing data to the front end
+ * BalanceDTO - POJO class for passing balance data to the front end
  *
  * @Author Anne Hogan
  * @Copyright 2018

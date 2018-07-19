@@ -1,7 +1,10 @@
 package simpleatm.model;
 
 /**
- * This is a DTO so remname perhaps
+ * BanknotePile - POJO class for passing notes data to the front end
+ *
+ * @Author Anne Hogan
+ * @Copyright 2018
  */
 
 import com.fasterxml.jackson.annotation.JsonRootName;
