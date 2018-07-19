@@ -27,7 +27,8 @@ Input / Output
 -	User should be provided with meaningful error messages.
 
 ### How to use this project
-This is a simple java project using SpringBoot and Hibernate in memory to allow a quick prototype application be created. The brief for the application is described [here](simpleatm/README.md) 
+This is a simple java project using SpringBoot and Hibernate in memory to allow a 
+quick prototype application be created. The brief for the application is described above.
 
 ###Source Code
 To use the project, simply clone the source from github using the following command `git clone https://github.com/annehogan/CodingChallenge0718.git`
@@ -44,23 +45,30 @@ You can change the port by setting the server port as part of the java command l
 
 ###Testing
 Junit testing is carried out as part of the build and Jacoco test coverage reports will also be available at `target/site/jacoco/index.html`
+Given more time (and a more complex problem), I would probably set up cucumber to run integration tests. 
+
+###Code Quality
+SonarLint has been run on the code, most issues have been resolved. I have added comments explaining why I am ignoring the issues I am ignoring. Given more time I would probably supress the warnings with an explanation.
 
 ###URLS
-The application allows balance queries and withdrawals. 
-To get balances use the URL `http://<host>:<port>/account/<account>/pin/<pin>` or in the 
-simplest example without having changed the host and port `http://localhost:8080/account/123456789/pin/1234`. 
-To make a withdrwal use the URL `http://<host>:<port>/account/<account>/pin/<pin>/withdraw/<amount>` or in the 
-simplest example without having changed the host and port `http://localhost:8080/account/123456789/pin/1234/withdraw/5`. 
+The application allows balance queries and withdrawals. We currently use a very straightforward approach but this prototype is not concerned with security (the account number and pin are sent as part of the URL, this would not make sense for any real implementation of an ATM application)
 
 Name|Endpoint|Description|Sample Response
-:---|:---:|:---|:---|
+:---|:---|:---:|:---|
 Balance|account/{ACCOUNT_NUMBER}/pin/{PIN}|Gets the balance and maximum overdraft for account matching ACCOUNT_NUMBER and PIN|`{"currentBalance":800,"maxWithdrawal":1000}`
 Withdrawal|account/{ACCOUNT_NUMBER}/pin/{PIN}/withdraw/{AMOUNT}|Withdraws the AMOUNT from account matching ACCOUNT_NUMBER and PIN|`{"banknotePiles":[{"noteValue":50,"noteCount":20},{"noteValue":20,"noteCount":19}],"remainingBalance":-150}`
+
+
+To get balances use the URL `http://<host>:<port>/account/<account>/pin/<pin>` or in the 
+simplest example without having changed the host and port `http://localhost:8080/account/123456789/pin/1234`. 
+
+To make a withdrwal use the URL `http://<host>:<port>/account/<account>/pin/<pin>/withdraw/<amount>` or in the 
+simplest example without having changed the host and port `http://localhost:8080/account/123456789/pin/1234/withdraw/5`. 
 
 ####Error Codes
 
 Code|Description
-:---|:---:|
+:---:|:---:|
 ATM_ERR_0001|You must request a positive amount
 ATM_ERR_0002|There are insufficient funds in the account
 ATM_ERR_0003|There are insufficient funds in the atm
@@ -70,3 +78,24 @@ ATM_ERR_0006|You must use a numeric value for account number, pin and amount.
 
 Sample Error Message
 `{"code":"ATM_ERR_0002","errorMessage":"Not enough funds in your account"}`
+
+##Database
+The database provided is a hibernate in memory database that allows us to prepopulate some data using a `src\main\resources\data.sql` file. To add extra data for test there is a second file `src\test\resources\data.sql`
+
+###H2 Console
+The H2 console has been enabled so that you can view the live DB while the application is running. 
+
+It can be accessed with this URL:
+
+`http://localhost:8080/h2-console`
+
+In the login page enter this JDBC URL 
+
+`jdbc:h2:mem:testdb`
+
+Use the driver `org.h2.Driver` and use the `sa` username with no password.
+
+##Who to contact
+Contact [me](mailto:annehogan.ie@gmail.com) for more information
+
+
