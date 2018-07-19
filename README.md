@@ -31,7 +31,10 @@ This is a simple java project using SpringBoot and Hibernate in memory to allow 
 quick prototype application be created. The brief for the application is described above.
 
 ###Source Code
-To use the project, simply clone the source from github using the following command `git clone https://github.com/annehogan/CodingChallenge0718.git`
+To use the project, simply clone the source from github using the following command 
+
+`git clone https://github.com/annehogan/CodingChallenge0718.git`
+
 Once you have the code, you can view it in IntelliJ. The code is in a subdirectory called `simpleatm`
 
 ###Building
