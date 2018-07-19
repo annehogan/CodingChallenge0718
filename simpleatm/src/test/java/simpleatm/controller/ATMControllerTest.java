@@ -25,6 +25,7 @@ import static simpleatm.model.ATMServiceErrorCodes.*;
 public class ATMControllerTest {
 
     /* Adding constants for creating the URIs so that they can be reused */
+    // Ignore warning about forming URI as this is used for testing
     private static final String ACCOUNT_PATH_STRING = "/account/";
     private static final String PIN_PATH_STRING = "/pin/";
     private static final String WITHDRAW_PATH_STRING = "/withdraw/";
@@ -41,9 +42,9 @@ public class ATMControllerTest {
     @Autowired
     NoteHolderRepository noteHolderRepository;
 
-    // TODO expand the tests to test for actual values,application test for negative scenarios.
+    // TODO expand the tests to test for actual values, application test for negative scenarios.
+    // Ignore the warning about Exception which is thrown because of Junit and is outside my control
     @Test
-    @SuppressWarnings("unchecked")
     public void testAccountExists() throws Exception {
         ATMTestUtil.initialiseAccountRepository(accountRepository);
         String url = ACCOUNT_PATH_STRING + ACCOUNT_1.toString() + PIN_PATH_STRING + PIN_1.toString();
