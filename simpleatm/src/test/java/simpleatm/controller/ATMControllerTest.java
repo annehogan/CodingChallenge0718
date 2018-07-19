@@ -24,9 +24,10 @@ public class ATMControllerTest {
     @Autowired
     MockMvc mockMvc;
 
-    @Test
+    // Suppressing the SonarLint warning about the unchecked Exception thrown by Junit
     @SuppressWarnings("unchecked")
-    public void testAccountExists() throws Exception {
+    @Test
+    public void testAccountExists() {
         mockMvc.perform(MockMvcRequestBuilders.get("/account/" + ACCOUNT_1.toString() + "/pin/" + PIN_1.toString()))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json;charset=UTF-8"))
@@ -34,9 +35,10 @@ public class ATMControllerTest {
                 .andExpect(content().string(CoreMatchers.containsString("maxWithdrawal")));
     }
 
-    @Test
+    // Suppressing the SonarLint warning about the unchecked Exception thrown by Junit
     @SuppressWarnings("unchecked")
-    public void testWithdrawal() throws Exception {
+    @Test
+    public void testWithdrawal() {
         mockMvc.perform(MockMvcRequestBuilders.get("/account/" + ACCOUNT_1.toString() + "/pin/" + PIN_1.toString()+"/withdraw/"+BALANCE_1))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json;charset=UTF-8"))
