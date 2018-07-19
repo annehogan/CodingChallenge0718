@@ -1,8 +1,6 @@
-# CodingChallenge0718
+#ATM Coding Challenge 
 
-##ATM Coding Challenge 
-
-###The Brief
+##The Brief
 You are tasked with developing software for an ATM machine. The software is responsible for validating customer account details and performing basic operations including balance inquiries and cash withdrawals.
 A third party is developing the UI and will provide data to the application in an agreed format defined below. The application should receive the data, process the operations and then output the results in the required format also defined below. For the purposes of the test you are free to implement any mechanism for feeding input into your solution.
 The solution should meet the following business requirements:
@@ -26,7 +24,7 @@ Input / Output
 -	The user should be able to request a withdrawal and if successful details of the notes that would be dispensed along with remaining balance.
 -	User should be provided with meaningful error messages.
 
-### How to use this project
+## How to use this project
 This is a simple java project using SpringBoot and Hibernate in memory to allow a 
 quick prototype application be created. The brief for the application is described above.
 
