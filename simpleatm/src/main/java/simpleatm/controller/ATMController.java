@@ -12,7 +12,7 @@ import simpleatm.model.ServiceErrorCode;
 import simpleatm.model.WithdrawalDTO;
 import simpleatm.service.ATMService;
 /**
- * ATMController - Rest Controller to manage the endpoints
+ * ATMController -Rest Controller to manage the endpoints
  *
  * @Author Anne Hogan
  * @Copyright 2018
