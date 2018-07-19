@@ -78,7 +78,7 @@ public class ATMControllerTest {
 
     @Test
     @SuppressWarnings("unchecked")
-    public void testWithdrawalInsufficientFundsInAccount() throws Exception{
+    public void testWithdrawalInsufficientFundsInAccount() throws Exception {
         ATMTestUtil.initialiseNoteHolderRepository(noteHolderRepository);
         ATMTestUtil.initialiseAccountRepository(accountRepository);
         String url = ACCOUNT_PATH_STRING + ACCOUNT_2.toString() + PIN_PATH_STRING + PIN_2.toString() + WITHDRAW_PATH_STRING + (BALANCE_2 + OVERDRAFT_2 + 5L);
@@ -90,7 +90,7 @@ public class ATMControllerTest {
 
     @Test
     @SuppressWarnings("unchecked")
-    public void testWithdrawalNoFundsInATM()throws Exception {
+    public void testWithdrawalNoFundsInATM() throws Exception {
         ATMTestUtil.initialiseNoteHolderRepository(noteHolderRepository);
         ATMTestUtil.initialiseAccountRepository(accountRepository);
         String url = ACCOUNT_PATH_STRING + ACCOUNT_3.toString() + PIN_PATH_STRING + PIN_3.toString() + WITHDRAW_PATH_STRING + (ATM_LIMIT + 5L);

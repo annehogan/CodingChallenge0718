@@ -51,3 +51,22 @@ To get balances use the URL `http://<host>:<port>/account/<account>/pin/<pin>` o
 simplest example without having changed the host and port `http://localhost:8080/account/123456789/pin/1234`. 
 To make a withdrwal use the URL `http://<host>:<port>/account/<account>/pin/<pin>/withdraw/<amount>` or in the 
 simplest example without having changed the host and port `http://localhost:8080/account/123456789/pin/1234/withdraw/5`. 
+
+Name|Endpoint|Description|Sample Response
+:---|:---:|:---|:---|
+Balance|account/{ACCOUNT_NUMBER}/pin/{PIN}|Gets the balance and maximum overdraft for account matching ACCOUNT_NUMBER and PIN|`{"currentBalance":800,"maxWithdrawal":1000}`
+Withdrawal|account/{ACCOUNT_NUMBER}/pin/{PIN}/withdraw/{AMOUNT}|Withdraws the AMOUNT from account matching ACCOUNT_NUMBER and PIN|`{"banknotePiles":[{"noteValue":50,"noteCount":20},{"noteValue":20,"noteCount":19}],"remainingBalance":-150}`
+
+####Error Codes
+
+Code|Description
+:---|:---:|
+ATM_ERR_0001|You must request a positive amount
+ATM_ERR_0002|There are insufficient funds in the account
+ATM_ERR_0003|There are insufficient funds in the atm
+ATM_ERR_0004|The account number and pin have matched multiple accounts
+ATM_ERR_0005|There is no account matching account number and pin
+ATM_ERR_0006|You must use a numeric value for account number, pin and amount.
+
+Sample Error Message
+`{"code":"ATM_ERR_0002","errorMessage":"Not enough funds in your account"}`
