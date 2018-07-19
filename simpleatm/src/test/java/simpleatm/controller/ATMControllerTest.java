@@ -12,8 +12,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static simpleatm.ATMTestConstants.ACCOUNT_1;
-import static simpleatm.ATMTestConstants.PIN_1;
+
+import static simpleatm.ATMTestConstants.*;
 
 
 @RunWith(SpringRunner.class)
@@ -34,6 +34,14 @@ public class ATMControllerTest {
                 .andExpect(content().string(CoreMatchers.containsString("maxWithdrawal")));
     }
 
-    // TODO test rest of the interface
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testWithdrawal() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/account/" + ACCOUNT_1.toString() + "/pin/" + PIN_1.toString()+"/withdraw/"+BALANCE_1)
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json;charset=UTF-8"))
+                .andExpect(content().string(CoreMatchers.containsString("banknotePiles")))
+                .andExpect(content().string(CoreMatchers.containsString("remainingBalance")));
+    }
 
 }

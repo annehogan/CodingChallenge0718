@@ -1,5 +1,8 @@
 package simpleatm;
 
+// Constants to be used through out tests that match to the inserted test data. Trying to maintain this in one
+// location so that updates to tests and test data are self contained and easy to do.
+
 public class ATMTestConstants {
     public static final Long STARTING_QUANTITY_50 = 20L;
     public static final Long STARTING_QUANTITY_20 = 30L;

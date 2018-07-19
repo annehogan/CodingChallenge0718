@@ -1,3 +1,4 @@
+-- extra data that can be used for testing purposes
 insert into Account (id, account_number, pin, balance, overdraft_allowance)
 values(220001, 3456789012, 5678, 200, 200);
 insert into Account (id, account_number, pin, balance, overdraft_allowance)

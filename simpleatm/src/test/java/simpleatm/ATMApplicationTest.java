@@ -11,6 +11,7 @@ import static org.junit.Assert.assertTrue;
 @SpringBootTest
 public class ATMApplicationTest {
 
+    // Simple context loading test
     @Test
     public void contextLoads() {
         assertTrue("Context Loaded", true);

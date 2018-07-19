@@ -9,9 +9,11 @@ import java.util.List;
 
 import static simpleatm.ATMTestConstants.*;
 
+// Providing some basic data initialisation so that tests can all start from a known situation
 public class ATMTestUtil {
 
     private ATMTestUtil() {
+        // prevent calls to a public constructor in constants class
     }
 
     public static final void initialiseNoteHolderRepository(NoteHolderRepository noteHolderRepository) {
