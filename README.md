@@ -1,6 +1,6 @@
-#ATM Coding Challenge 
+# ATM Coding Challenge 
 
-##The Brief
+## The Brief
 You are tasked with developing software for an ATM machine. The software is responsible for validating customer account details and performing basic operations including balance inquiries and cash withdrawals.
 A third party is developing the UI and will provide data to the application in an agreed format defined below. The application should receive the data, process the operations and then output the results in the required format also defined below. For the purposes of the test you are free to implement any mechanism for feeding input into your solution.
 The solution should meet the following business requirements:
