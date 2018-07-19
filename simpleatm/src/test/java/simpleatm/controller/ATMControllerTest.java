@@ -24,9 +24,11 @@ import static simpleatm.model.ATMServiceErrorCodes.*;
 @AutoConfigureMockMvc
 public class ATMControllerTest {
 
+    /* Adding constants for creating the URIs so that they can be reused */
     private static final String ACCOUNT_PATH_STRING = "/account/";
     private static final String PIN_PATH_STRING = "/pin/";
     private static final String WITHDRAW_PATH_STRING = "/withdraw/";
+
     private static final String CHARSET_STRING = "application/json;charset=UTF-8";
     private static final String BALANCEDTO_CURRENT_BALANCE = "\"currentBalance\"";
     private static final String BALANCEDTO_MAX_WITHDRAWAL = "\"maxWithdrawal\"";
@@ -44,7 +46,8 @@ public class ATMControllerTest {
     @SuppressWarnings("unchecked")
     public void testAccountExists() throws Exception {
         ATMTestUtil.initialiseAccountRepository(accountRepository);
-        mockMvc.perform(MockMvcRequestBuilders.get(ACCOUNT_PATH_STRING + ACCOUNT_1.toString() + PIN_PATH_STRING + PIN_1.toString()))
+        String url = ACCOUNT_PATH_STRING + ACCOUNT_1.toString() + PIN_PATH_STRING + PIN_1.toString();
+        mockMvc.perform(MockMvcRequestBuilders.get(url))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(CHARSET_STRING))
                 .andExpect(content().string(CoreMatchers.containsString(BALANCEDTO_CURRENT_BALANCE + ":" + BALANCE_1)))
@@ -54,7 +57,8 @@ public class ATMControllerTest {
     @Test
     @SuppressWarnings("unchecked")
     public void testMultipleAccountsExist() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get(ACCOUNT_PATH_STRING + BAD_ACCOUNT_1.toString() + PIN_PATH_STRING + BAD_PIN_1.toString()))
+        String url = ACCOUNT_PATH_STRING + BAD_ACCOUNT_1.toString() + PIN_PATH_STRING + BAD_PIN_1.toString();
+        mockMvc.perform(MockMvcRequestBuilders.get(url))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(CHARSET_STRING))
                 .andExpect(content().string(CoreMatchers.containsString(ATM_ERROR_CODE_DUPLICATE_ACCOUNT_PIN)));
@@ -63,7 +67,8 @@ public class ATMControllerTest {
     @Test
     @SuppressWarnings("unchecked")
     public void testAccountDoesNotExist() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get(ACCOUNT_PATH_STRING + INVALID_ACCOUNT.toString() + PIN_PATH_STRING + INVALID_PIN.toString()))
+        String url = ACCOUNT_PATH_STRING + INVALID_ACCOUNT.toString() + PIN_PATH_STRING + INVALID_PIN.toString();
+        mockMvc.perform(MockMvcRequestBuilders.get(url))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(CHARSET_STRING))
                 .andExpect(content().string(CoreMatchers.containsString(ATM_ERROR_CODE_NO_SUCH_ACCOUNT)));
@@ -72,10 +77,11 @@ public class ATMControllerTest {
 
     @Test
     @SuppressWarnings("unchecked")
-    public void testWithdrawalInsufficientFundsInAccount() throws Exception {
+    public void testWithdrawalInsufficientFundsInAccount() throws Exception{
         ATMTestUtil.initialiseNoteHolderRepository(noteHolderRepository);
         ATMTestUtil.initialiseAccountRepository(accountRepository);
-        mockMvc.perform(MockMvcRequestBuilders.get(ACCOUNT_PATH_STRING + ACCOUNT_2.toString() + PIN_PATH_STRING + PIN_2.toString() + WITHDRAW_PATH_STRING + (BALANCE_2 + OVERDRAFT_2 + 5L)))
+        String url = ACCOUNT_PATH_STRING + ACCOUNT_2.toString() + PIN_PATH_STRING + PIN_2.toString() + WITHDRAW_PATH_STRING + (BALANCE_2 + OVERDRAFT_2 + 5L);
+        mockMvc.perform(MockMvcRequestBuilders.get(url))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(CHARSET_STRING))
                 .andExpect(content().string(CoreMatchers.containsString(ATM_ERROR_CODE_ACCOUNT_INSUFFICIENT_FUNDS)));
@@ -83,10 +89,11 @@ public class ATMControllerTest {
 
     @Test
     @SuppressWarnings("unchecked")
-    public void testWithdrawalNoFundsInATM() throws Exception {
+    public void testWithdrawalNoFundsInATM()throws Exception {
         ATMTestUtil.initialiseNoteHolderRepository(noteHolderRepository);
         ATMTestUtil.initialiseAccountRepository(accountRepository);
-        mockMvc.perform(MockMvcRequestBuilders.get(ACCOUNT_PATH_STRING + ACCOUNT_3.toString() + PIN_PATH_STRING + PIN_3.toString() + WITHDRAW_PATH_STRING + (ATM_LIMIT + 5L)))
+        String url = ACCOUNT_PATH_STRING + ACCOUNT_3.toString() + PIN_PATH_STRING + PIN_3.toString() + WITHDRAW_PATH_STRING + (ATM_LIMIT + 5L);
+        mockMvc.perform(MockMvcRequestBuilders.get(url))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(CHARSET_STRING))
                 .andExpect(content().string(CoreMatchers.containsString(ATM_ERROR_CODE_ATM_INSUFFICIENT_FUNDS)));
@@ -97,7 +104,8 @@ public class ATMControllerTest {
     public void testWithdrawal() throws Exception {
         ATMTestUtil.initialiseNoteHolderRepository(noteHolderRepository);
         ATMTestUtil.initialiseAccountRepository(accountRepository);
-        mockMvc.perform(MockMvcRequestBuilders.get(ACCOUNT_PATH_STRING + ACCOUNT_1.toString() + PIN_PATH_STRING + PIN_1.toString() + WITHDRAW_PATH_STRING + BALANCE_1))
+        String url = ACCOUNT_PATH_STRING + ACCOUNT_1.toString() + PIN_PATH_STRING + PIN_1.toString() + WITHDRAW_PATH_STRING + BALANCE_1;
+        mockMvc.perform(MockMvcRequestBuilders.get(url))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(CHARSET_STRING))
                 .andExpect(content().string(CoreMatchers.containsString(WITHDRAWALDTO_BANKNOTE_PILES)))
