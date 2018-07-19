@@ -11,6 +11,7 @@ import simpleatm.model.BalanceDTO;
 import simpleatm.model.ServiceErrorCode;
 import simpleatm.model.WithdrawalDTO;
 import simpleatm.service.ATMService;
+
 /**
  * ATMController -Rest Controller to manage the endpoints
  *
@@ -30,7 +31,7 @@ public class ATMController {
      * checks to be handled by the service.
      *
      * @param acountNumberString The account number
-     * @param pinString the pin
+     * @param pinString          the pin
      * @return a {@link BalanceDTO} for the specified acountNumberString and pinString. If it cannot retrieve that a
      * {@link ServiceException} will be thrown
      */
@@ -54,7 +55,7 @@ public class ATMController {
      * other data checks to be handled by the service.
      *
      * @param acountNumberString The account number
-     * @param pinString the pin
+     * @param pinString          the pin
      * @param amountString
      * @return a {@link WithdrawalDTO} for the specified acountNumberString and pinString. If it cannot retrieve that a
      * {@link ServiceException} will be thrown

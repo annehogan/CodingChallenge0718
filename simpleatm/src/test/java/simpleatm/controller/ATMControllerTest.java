@@ -12,7 +12,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import static simpleatm.ATMTestConstants.*;
 
 
@@ -39,7 +38,7 @@ public class ATMControllerTest {
     @SuppressWarnings("unchecked")
     @Test
     public void testWithdrawal() {
-        mockMvc.perform(MockMvcRequestBuilders.get("/account/" + ACCOUNT_1.toString() + "/pin/" + PIN_1.toString()+"/withdraw/"+BALANCE_1))
+        mockMvc.perform(MockMvcRequestBuilders.get("/account/" + ACCOUNT_1.toString() + "/pin/" + PIN_1.toString() + "/withdraw/" + BALANCE_1))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json;charset=UTF-8"))
                 .andExpect(content().string(CoreMatchers.containsString("banknotePiles")))

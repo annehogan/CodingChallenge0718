@@ -53,6 +53,7 @@ public class ATMDaoImpl implements ATMDao {
     /**
      * This must be transactional as all the changes are carried out here. If we fail making any part of update, the
      * entire transaction must be rolled back.
+     *
      * @param noteHolderList
      * @param account
      */

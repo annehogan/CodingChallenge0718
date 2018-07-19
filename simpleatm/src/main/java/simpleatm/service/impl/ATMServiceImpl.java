@@ -42,9 +42,8 @@ public class ATMServiceImpl implements ATMService {
     /**
      * Handles the withdrawal. This method is transactional to ensure that if there is a failure in any step the
      * entire transaction rolls back.
-     *
+     * <p>
      * Usual parameter and return details are described in the interface javadoc.
-     *
      */
     @Transactional
     @Override

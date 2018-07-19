@@ -7,6 +7,7 @@ import java.util.Objects;
 
 /**
  * ServiceErrorCode for use in {@link ServiceException}
+ *
  * @Author Anne Hogan
  * @Copyright 2018
  */

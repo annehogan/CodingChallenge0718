@@ -15,6 +15,7 @@ import java.util.List;
 public interface ATMDao {
     /**
      * getAccount - retrieves the appropriate account details
+     *
      * @param accountNumber
      * @param pin
      * @return {@link Account}
@@ -23,12 +24,14 @@ public interface ATMDao {
 
     /**
      * findAvailableFunds - retrieves the appropriate account details
+     *
      * @return a list of {@link NoteHolder}
      */
     List<NoteHolder> findAvailableFunds();
 
     /**
      * updateAfterWithdrawal - makes the updates to the database for the changes to the Account and the NoteHolder list
+     *
      * @param noteHolderList
      * @param account
      */
