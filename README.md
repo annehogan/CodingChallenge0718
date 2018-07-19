@@ -2,25 +2,6 @@
 
 ##ATM Coding Challenge 
 
-### How to use this project
-This is a simple java project using SpringBoot and Hibernate in memory to allow a quick prototype application be created. The brief for the application is described [here](simpleatm/README.md) 
-
-###Source Code
-To use the project, simply clone the source from github using the following command `git clone https://github.com/annehogan/CodingChallenge0718.git`
-Once you have the code, you can view it in IntelliJ.
-
-###Building
-The code can be built using the standard maven commands.
-`mvn clean package` will create an installation jar which can be run from the command line (or in IntelliJ if you wish). 
-
-###Running
-To run the application locally use `java -jar simple-atm-0.0.1.jar`. This will run on *localhost* port *8080*. 
-You can change the port by setting the server port as part of the java command line
-`-Dserver.port=<new_port_number>`
-
-###Testing
-Junit testing is carried out as part of the build and Jacoco test coverage reports will also be available at `target/site/jacoco/index.html`
-
 ###The Brief
 You are tasked with developing software for an ATM machine. The software is responsible for validating customer account details and performing basic operations including balance inquiries and cash withdrawals.
 A third party is developing the UI and will provide data to the application in an agreed format defined below. The application should receive the data, process the operations and then output the results in the required format also defined below. For the purposes of the test you are free to implement any mechanism for feeding input into your solution.
@@ -45,3 +26,28 @@ Input / Output
 -	The user should be able to request a withdrawal and if successful details of the notes that would be dispensed along with remaining balance.
 -	User should be provided with meaningful error messages.
 
+### How to use this project
+This is a simple java project using SpringBoot and Hibernate in memory to allow a quick prototype application be created. The brief for the application is described [here](simpleatm/README.md) 
+
+###Source Code
+To use the project, simply clone the source from github using the following command `git clone https://github.com/annehogan/CodingChallenge0718.git`
+Once you have the code, you can view it in IntelliJ. The code is in a subdirectory called `simpleatm`
+
+###Building
+The code can be built using the standard maven commands
+`mvn clean package` in _simpleatm_ will create an installation jar which can be run from the command line (or in IntelliJ if you wish). 
+
+###Running
+To run the application locally use `java -jar simple-atm-0.0.1.jar`. This will run on *localhost* port *8080*. 
+You can change the port by setting the server port as part of the java command line
+`-Dserver.port=<new_port_number>`
+
+###Testing
+Junit testing is carried out as part of the build and Jacoco test coverage reports will also be available at `target/site/jacoco/index.html`
+
+###URLS
+The application allows balance queries and withdrawals. 
+To get balances use the URL `http://<host>:<port>/account/<account>/pin/<pin>` or in the 
+simplest example without having changed the host and port `http://localhost:8080/account/123456789/pin/1234`. 
+To make a withdrwal use the URL `http://<host>:<port>/account/<account>/pin/<pin>/withdraw/<amount>` or in the 
+simplest example without having changed the host and port `http://localhost:8080/account/123456789/pin/1234/withdraw/5`. 
